@@ -1,0 +1,18 @@
+<p><%= comment.content %></p>
+<div class="d-flex justify-content-between">
+<p>Posted by <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+<% if user_signed_in? %>
+    <% if comment.user_id== current_user.id%>
+        <div>
+            <%=link_to edit_restaurant_comment_path(comment.restaurant,comment), class: "btn btn-light" do %>
+                <i class="fa fa-pencil-square-o"></i>
+            <%end%>
+            <%=link_to restaurant_comment_path(comment.restaurant,comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this comment"}, class: "btn btn-danger" do %>
+                <i class="fa fa-trash"></i>
+            <%end%>
+        </div>
+    <%end%>
+<%end%>
+</div>
+<hr>
+   

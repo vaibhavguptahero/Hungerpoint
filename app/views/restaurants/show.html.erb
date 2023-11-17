@@ -1,0 +1,41 @@
+<h1 class="text-center"><%=@restaurant.name%></h1>
+<h4 class="text-center"><%=@restaurant.location%></h4>
+<hr>
+<%=link_to "ADD MENU", new_menu_item_path(restaurant_id: @restaurant), class:"btn btn-primary mb-4 mt-4"%>
+
+<div class="container">
+    <h2>Menu-Items</h2>
+    <table class="table table-danger table-striped table-hover">
+    <thead class="table-primary">
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @restaurant.menu_items.each_with_index do |menu,i|%>
+            <tr>
+                <td scope="row"><%=i+1%></td>
+                <td><%=menu.name%></td>
+                <td><%=menu.price%></td>
+                <td><%=link_to "ADD TO CART",cart_path(menu,restaurant_id:  @restaurant),data:{turbo_method: :put} ,class:"btn btn-outline-primary"%></td>
+            </tr>
+        <%end%>
+    </tbody>
+    </table>
+
+    <br>
+    <div style="background-color:#ffebee">
+        <div class="mx-3">
+        <h3>Reviews:</h3>
+        <%=render @restaurant.comments%>
+        <h3>Share Your Views:</h3>
+        <%= render 'comments/form', comment:  @restaurant.comments.build, url: restaurant_comments_path(@restaurant)%>
+        </div>
+        
+        
+    </div>
+
+</div>

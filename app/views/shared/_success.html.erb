@@ -1,0 +1,8 @@
+<div class="messages">
+  <%flash.each do |name,msg|%>
+    <div class="alert alert-success alert-dismissible fade show" style="max-height:50px;" role="alert">
+      <p id="alert-content"><%=msg%></p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <%end%>
+</div>

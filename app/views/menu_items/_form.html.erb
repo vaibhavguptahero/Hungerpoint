@@ -1,0 +1,18 @@
+<div class="container">
+    <%=form_with model: menu_item, url: url do |form|%>
+        <div class="mb-3">
+            <%=form.label :name, class:'form-label'%><br>
+            <%=form.text_field :name, class:"form-control"%>
+        </div>
+        <div class="mb-3">
+            <%=form.label :price, class:'form-label'%><br>
+            <%=form.text_area :price, class:"form-control"%>
+        </div>
+
+        <br>
+        <div class="mb-3 text-center">
+            <%=form.submit class:"btn btn-primary"%>
+            <%=link_to "Back", :back, class: "btn btn-warning"%>
+        </div>
+    <%end%>
+<div>

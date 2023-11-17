@@ -1,0 +1,24 @@
+<h1 class="text-center">Restaurants</h1>
+<div class="row">
+<%@restaurants.each do |restaurant|%>
+    <%=link_to restaurant_path(restaurant), class: "mt-5 col-4 mx-3 text-decoration-none text-dark",style:"width: 21rem;" do%>
+        <div class="card  border-3" style="width: 21rem;border-bottom-color:#80ff52; background-color:#ffb999;min-height:600px;">
+            <h5 class="card-title text-dark gw-bold mx-3 mt-2"><%=restaurant.name%></h5>
+            <div class="card-body ">
+                <p class="card-text">Food type: <%=restaurant.menu%></p>
+                <p class="card-text">Location: <%=restaurant.location%></p>
+                <hr>
+                <div class="fa-stack">
+                    <i class="fa fa-square-o fa-stack-2x"></i>
+                    <i class="fa fa-star fa-stack-1x"></i>
+                </div>
+                <h6 class="card-subtitle mb-2 text-muted" style="display:inline"><%= restaurant.review%></h6>
+                <br>
+                <br>
+            </div>
+        </div>
+    <%end%>
+<%end%>
+</div>
+
+
